@@ -21,7 +21,7 @@ public class UserController {
     private final UserService userService;
     private final UserMapper userMapper;
 
-    @PostMapping
+    @PostMapping(consumes = "application/json",produces = "application/json")
     public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO) {
         var usr =userService.createUser(userMapper.toDomain(userDTO));
         return ResponseEntity.ok(userMapper.toDto(usr));
