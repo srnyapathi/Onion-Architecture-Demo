@@ -38,7 +38,7 @@ jobs:
       run: mvn test
 
     - name: Generate JaCoCo report
-      run: mvn jacoco:report-aggregator
+      run: mvn jacoco:report-aggregate
 
     - name: Upload JaCoCo report
       uses: actions/upload-artifact@v3
