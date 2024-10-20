@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Onion-Architecture-demo",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
