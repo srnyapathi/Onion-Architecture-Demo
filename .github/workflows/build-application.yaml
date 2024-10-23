@@ -38,15 +38,7 @@ jobs:
       - name: Build and generate JaCoCo report
         run: mvn clean install jacoco:report-aggregate
 
-      - name: Install SonarScanner CLI
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y unzip
-          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip
-          unzip sonar-scanner-cli-4.8.0.2856-linux.zip
-          export PATH=$PATH:$(pwd)/sonar-scanner-4.8.0.2856-linux/bin
-
-      - name: Run SonarScanner using sonar-project.properties
-        run: sonar-scanner
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@v3.0.0 # Ex: v2.1.0, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  # Use the secret token for authentication
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
