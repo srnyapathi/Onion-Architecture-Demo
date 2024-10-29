@@ -89,7 +89,7 @@ jobs:
 
       - name: Define Docker image tag
         id: docker_tag
-        run: echo "${GITHUB_SHA::7}" >> $GITHUB_ENV
+        run: echo "tag=${GITHUB_SHA::7}" >> $GITHUB_ENV
 
       - name: Build Docker image
         run: docker build -t ghcr.io/${{ github.repository }}/onion-architecture-demo:${{ env.tag }} .
